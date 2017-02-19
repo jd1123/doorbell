@@ -1,0 +1,8 @@
+*.swp
+*.swo
+*.pyc
+settings.json
+doorbell.egg-info
+setup.py
+build
+dist

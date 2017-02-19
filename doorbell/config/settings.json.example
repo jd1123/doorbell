@@ -1,0 +1,9 @@
+{
+	"authPassword":"connectme"
+	"gmailLogin":"yourlogin@gmail.com",
+	"gmailPassword":"yougmailpassword",
+	"toNumbers":[
+		"5558881111@txt.att.net",
+		"5558881112@txt.att.net"
+	]
+}

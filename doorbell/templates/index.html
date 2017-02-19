@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Setup
+{% endblock %}
+
+{% block body %}
+
+<div>
+	<h3>
+		Doorbell App
+	</h3>
+	<center><img src='static/doorbell2.png'></center>
+</div>
+
+<div>
+	<h4>Setup Page:</h4>
+</div>
+
+{% if updtmsg %}
+<div>
+	<h5>
+		Config updated!
+	</h5>
+</div>
+{% endif %}
+
+<div>
+	<form action="/" method="post">
+		<fieldset>
+			<legend>Ring?</legend>
+			<input type="radio" name="ring" value="Yes" {% if ring %} checked="True" {% endif %}/>Yes{% if ring %}*{% endif %}</br />
+			<input type="radio" name="ring" value="No" {% if not ring %} checked="True" {% endif %}/>No{% if not ring %}*{% endif %}<br />
+		</fieldset>
+		<fieldset>
+			<legend>Text?</legend>
+			<input type="radio" name="sendtext" value="Yes" {% if sendtext %} checked="True" {% endif %}/>Yes{% if sendtext %}*{% endif %}</br />
+			<input type="radio" name="sendtext" value="No" {% if not sendtext %} checked="True" {% endif %}/>No{% if not sendtext %}*{% endif %}<br />
+		</fieldset>
+		<br />
+		<input type="submit" value="Submit">
+
+		<div>
+			<p> <h4>Timer:</h4></p>
+			<p>
+			<div><b>Sound:</b></div>
+			<div>Enabled{% if cdict.soundEnabled %}*{% endif %}: {{ cdict.soundTimerEnabled }} <input type="checkbox" name="soundTimerEnabled" value="False" {% if cdict.soundEnabled %} checked{% endif %}></div>
+			<div>Start time: {{ cdict.soundConfig.startTime[0] }}:{{ cdict.soundConfig.startTime[1] }}</div>
+			<div>End time: {{ cdict.soundConfig.endTime[0] }}:{{ cdict.soundConfig.endTime[1] }}</div>
+			</p>
+			<p>
+			<div><b>Text:</b></div>
+			<div>Enabled{% if cdict.textEnabled %}*{% endif %}: {{ cdict.textTimerEnabled }} <input type="checkbox" name="textTimerEnabled" value="False" {% if cdict.textEnabled %} checked{% endif %}></div>
+			<div>Start time: {{ cdict.textConfig.startTime[0] }}:{{cdict.textConfig.startTime[1]}}</div>
+			<div>End time: {{ cdict.textConfig.endTime[0] }}:{{cdict.textConfig.endTime[1]}}</div>
+			</p>
+		</div>
+	</form>
+</div>
+
+{% endblock %}
